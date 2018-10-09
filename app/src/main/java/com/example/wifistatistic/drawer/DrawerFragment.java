@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.wifistatistic.Example.ExampleActivity;
+import com.example.wifistatistic.Example.ExampleFragment;
 import com.example.wifistatistic.R;
 
 public class DrawerFragment extends Fragment implements View.OnClickListener {
@@ -34,8 +35,9 @@ public class DrawerFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        Intent intent = new Intent(getContext(),ExampleActivity.class);
-        startActivity(intent);
-        v.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+        getFragmentManager().beginTransaction().replace(R.id.container,new ExampleFragment()).commitAllowingStateLoss();
+//        Intent intent = new Intent(getContext(),ExampleActivity.class);
+//        startActivity(intent);
+//        v.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
     }
 }
