@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">WiFiStatistic</string>
+    <string-array name="screen_array">
+        <item>Вкладка 1</item>
+        <item>Вкладка 2</item>
+        <item>Вкладка 3</item>
+    </string-array>
 </resources>
