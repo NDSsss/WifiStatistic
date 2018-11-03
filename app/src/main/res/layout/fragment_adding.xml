@@ -13,7 +13,7 @@
             android:id="@+id/et_adding_path"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Adding Fragment" />
+            android:text="@string/stat" />
 
         <Button
             android:id="@+id/btn_adding_choose"

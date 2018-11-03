@@ -6,6 +6,6 @@
         android:id="@+id/et_filter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Filter"/>
+        android:text="@string/devider"/>
 
 </android.support.constraint.ConstraintLayout>

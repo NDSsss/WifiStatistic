@@ -1,5 +1,6 @@
 package com.example.wifistatistic.Adding;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.wifistatistic.ITakeStatistic;
 import com.example.wifistatistic.R;
@@ -23,8 +25,14 @@ public class AddingFragment extends Fragment implements View.OnClickListener, IT
 
     }
 
-    public AddingFragment(ITakeStatistic takeStatistic){
-        mTakeStatistic = takeStatistic;
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof ITakeStatistic) {
+            mTakeStatistic = (ITakeStatistic) context;
+        }else{
+            Toast.makeText(context,"NoListener",Toast.LENGTH_LONG);
+        }
     }
 
     @Nullable
@@ -34,6 +42,7 @@ public class AddingFragment extends Fragment implements View.OnClickListener, IT
         etInputPath = (EditText) view.findViewById(R.id.et_adding_path);
         btnChoose = (Button) view.findViewById(R.id.btn_adding_choose);
         btnChoose.setOnClickListener(this);
+        mTakeStatistic.setStat(etInputPath.getText().toString());
         return view;
     }
 
