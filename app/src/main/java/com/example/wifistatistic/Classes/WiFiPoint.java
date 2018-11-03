@@ -103,7 +103,7 @@ public class WiFiPoint {
     }
 
     public boolean setPoint(String data) {
-        String[] stats = data.split("|");
+        String[] stats = data.split("\\|");
 //        Time Stamp|SSID|BSSID|Strength|Primary Channel|Primary Frequency|Center Channel|Center Frequency|Width (Range)|Distance|Security
         if (stats.length == WIFI_POINT_STATS_COUNT) {
             timeStamp = stats[0];

@@ -3,10 +3,16 @@ package com.example.wifistatistic.Classes;
 import com.example.wifistatistic.R;
 import com.example.wifistatistic.Utils.FieldConverter;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class Measurment {
-    List<WiFiPoint> points;
+public class Measurement {
+    private int index;
+    private List<WiFiPoint> points;
+
+    public Measurement(){
+        points = new ArrayList<>();
+    }
 
     public List<WiFiPoint> getPoints() {
         return points;
@@ -25,4 +31,13 @@ public class Measurment {
         }
         return true;
     }
+
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
+    }
+
 }
