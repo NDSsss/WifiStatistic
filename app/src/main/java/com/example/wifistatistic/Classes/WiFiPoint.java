@@ -122,4 +122,5 @@ public class WiFiPoint {
             return false;
         }
     }
+
 }

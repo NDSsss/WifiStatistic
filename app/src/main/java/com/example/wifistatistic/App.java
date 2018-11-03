@@ -4,6 +4,7 @@ import android.app.Application;
 
 public class App extends Application {
     private String history;
+    public static App mInstance;
 
     public void setHistory(String history){
         this.history = history;
@@ -13,4 +14,9 @@ public class App extends Application {
         return history;
     }
 
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        mInstance = this;
+    }
 }
