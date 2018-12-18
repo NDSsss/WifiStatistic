@@ -20,10 +20,8 @@ public class Measurement {
 
     public boolean setPoints(String data){
         WiFiPoint point;
-        char[] rejex =new char[1];
-        rejex[0] = ((char)140);
-        String rejexStr = rejex.toString();
-        String[] pointsString = data.split(rejexStr);
+        String clearData = data.split("Security")[1];
+        String[] pointsString = clearData.split("qqqqq");
         for(int i = 0; i<pointsString.length-1;i++){
             point = new WiFiPoint();
             if(point.setPoint(pointsString[i])) {
@@ -32,6 +30,7 @@ public class Measurement {
                 return false;
             }
         }
+        index = Integer.parseInt(pointsString[pointsString.length-1]);
         return true;
     }
 

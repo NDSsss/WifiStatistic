@@ -13,6 +13,15 @@ public class WiFiPoint {
     private String range;
     private String distance;
     private String securuty;
+    private int timesUsed = 0;
+
+    public int getTimesUsed() {
+        return timesUsed;
+    }
+
+    public void setTimesUsed(int timesUsed) {
+        this.timesUsed = timesUsed;
+    }
 
     public String getTimeStamp() {
         return timeStamp;
@@ -102,6 +111,10 @@ public class WiFiPoint {
         this.securuty = securuty;
     }
 
+    public void incrementTimeUsed(){
+        timesUsed++;
+    }
+
     public boolean setPoint(String data) {
         String[] stats = data.split("\\|");
 //        Time Stamp|SSID|BSSID|Strength|Primary Channel|Primary Frequency|Center Channel|Center Frequency|Width (Range)|Distance|Security
@@ -123,4 +136,8 @@ public class WiFiPoint {
         }
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        return ssid.equals(((WiFiPoint)obj).ssid);
+    }
 }

@@ -69,4 +69,5 @@ public class DrawerFragment extends Fragment implements View.OnClickListener,ITa
     public String getStat() {
         return mStatisitic;
     }
+
 }
