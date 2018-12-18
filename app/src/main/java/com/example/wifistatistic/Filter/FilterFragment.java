@@ -63,7 +63,7 @@ public class FilterFragment extends Fragment {
     public void filter(){
         Measurement measure;
         mMeasurements = new ArrayList<>();
-        String[] rawMeasurements = mTakeStatistic.getStat().split("---");
+        String[] rawMeasurements = mTakeStatistic.getStat().replaceAll("\n","").split("---");
         for (int i = 0; i < rawMeasurements.length; i++){
             measure = new Measurement();
             if(!measure.setPoints(rawMeasurements[i])){
