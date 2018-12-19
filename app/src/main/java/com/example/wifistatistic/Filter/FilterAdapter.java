@@ -20,6 +20,11 @@ public class FilterAdapter extends RecyclerView.Adapter<FilterAdapter.ViewHolder
         this.points = points;
     }
 
+    public void setPoints(ArrayList<WiFiPoint> points) {
+        this.points = points;
+        notifyDataSetChanged();
+    }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

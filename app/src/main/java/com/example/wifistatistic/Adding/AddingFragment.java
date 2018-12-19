@@ -85,6 +85,7 @@ public class AddingFragment extends Fragment implements View.OnClickListener, IT
 //        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
 //        intent.setType("file/*");
 //        startActivityForResult(intent,PICK_REQUEST_CODE);
+        verifyStoragePermissions(getActivity());
         File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS).getAbsolutePath()+"/wifiAnalyzer");
         if(!file.exists()){
             file.mkdir();

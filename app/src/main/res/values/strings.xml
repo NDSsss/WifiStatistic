@@ -5,6 +5,8 @@
         <item>Вкладка 2</item>
         <item>Вкладка 3</item>
     </string-array>
+    <string name="stat_title">Статистика</string>
+    <string name="stat_share">Поделиться</string>
     <string name="stat">Time Stamp|SSID|BSSID|Strength|Primary Channel|Primary Frequency|Center Channel|Center Frequency|Width (Range)|Distance|Security
 2018/12/04 00:11:31|Darv9|70:4f:57:f4:3a:dc|-34dBm|1|2412MHz|3|2422MHz|40MHz (2402 - 2442)|~0.5m|[WPS][ESS]
 |qqqqq2018/12/04 00:11:31|ura1|f8:1a:67:f1:da:7e|-85dBm|3|2422MHz|5|2432MHz|40MHz (2412 - 2452)|~175.1m|[WPA2-PSK-CCMP][WPS][ESS]

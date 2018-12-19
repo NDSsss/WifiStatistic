@@ -1,6 +1,9 @@
 package com.example.wifistatistic.Classes;
 
-public class WiFiPoint {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class WiFiPoint implements Parcelable {
     public static final int WIFI_POINT_STATS_COUNT = 11;
     private String timeStamp;
     private String ssid;
@@ -140,4 +143,56 @@ public class WiFiPoint {
     public boolean equals(Object obj) {
         return ssid.equals(((WiFiPoint)obj).ssid);
     }
+
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.timeStamp);
+        dest.writeString(this.ssid);
+        dest.writeString(this.bssid);
+        dest.writeString(this.strengh);
+        dest.writeString(this.primaryChannel);
+        dest.writeString(this.primaryFrequency);
+        dest.writeString(this.centerChannel);
+        dest.writeString(this.centerFrequency);
+        dest.writeString(this.range);
+        dest.writeString(this.distance);
+        dest.writeString(this.securuty);
+        dest.writeInt(this.timesUsed);
+    }
+
+    public WiFiPoint() {
+    }
+
+    protected WiFiPoint(Parcel in) {
+        this.timeStamp = in.readString();
+        this.ssid = in.readString();
+        this.bssid = in.readString();
+        this.strengh = in.readString();
+        this.primaryChannel = in.readString();
+        this.primaryFrequency = in.readString();
+        this.centerChannel = in.readString();
+        this.centerFrequency = in.readString();
+        this.range = in.readString();
+        this.distance = in.readString();
+        this.securuty = in.readString();
+        this.timesUsed = in.readInt();
+    }
+
+    public static final Parcelable.Creator<WiFiPoint> CREATOR = new Parcelable.Creator<WiFiPoint>() {
+        @Override
+        public WiFiPoint createFromParcel(Parcel source) {
+            return new WiFiPoint(source);
+        }
+
+        @Override
+        public WiFiPoint[] newArray(int size) {
+            return new WiFiPoint[size];
+        }
+    };
 }
