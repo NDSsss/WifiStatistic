@@ -10,17 +10,17 @@
 
 
         <EditText
+            app:layout_constraintTop_toBottomOf="@+id/btn_adding_choose"
             android:id="@+id/et_adding_path"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Adding Fragment" />
+            android:text="@string/stat" />
 
         <Button
             android:id="@+id/btn_adding_choose"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Choose file"
-            app:layout_constraintTop_toBottomOf="@+id/et_adding_path" />
+            android:text="Choose file"/>
     </android.support.constraint.ConstraintLayout>
 
 </android.support.v4.widget.NestedScrollView>

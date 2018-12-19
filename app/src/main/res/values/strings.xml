@@ -5,4 +5,160 @@
         <item>Вкладка 2</item>
         <item>Вкладка 3</item>
     </string-array>
+    <string name="stat_title">Статистика</string>
+    <string name="stat_share">Поделиться</string>
+    <string name="stat">Time Stamp|SSID|BSSID|Strength|Primary Channel|Primary Frequency|Center Channel|Center Frequency|Width (Range)|Distance|Security
+2018/12/04 00:11:31|Darv9|70:4f:57:f4:3a:dc|-34dBm|1|2412MHz|3|2422MHz|40MHz (2402 - 2442)|~0.5m|[WPS][ESS]
+|qqqqq2018/12/04 00:11:31|ura1|f8:1a:67:f1:da:7e|-85dBm|3|2422MHz|5|2432MHz|40MHz (2412 - 2452)|~175.1m|[WPA2-PSK-CCMP][WPS][ESS]
+|qqqqq2018/12/04 00:11:31|Ura|f8:d1:11:93:25:84|-81dBm|6|2437MHz|4|2427MHz|40MHz (2407 - 2447)|~109.8m|[WPA2-PSK-CCMP+TKIP][WPS][ESS]
+|qqqqq0---
+Time Stamp|SSID|BSSID|Strength|Primary Channel|Primary Frequency|Center Channel|Center Frequency|Width (Range)|Distance|Security
+2018/12/04 00:11:32|Darv9|70:4f:57:f4:3a:dc|-34dBm|1|2412MHz|3|2422MHz|40MHz (2402 - 2442)|~0.5m|[WPS][ESS]
+|qqqqq2018/12/04 00:11:32|ura1|f8:1a:67:f1:da:7e|-85dBm|3|2422MHz|5|2432MHz|40MHz (2412 - 2452)|~175.1m|[WPA2-PSK-CCMP][WPS][ESS]
+|qqqqq2018/12/04 00:11:32|Ura|f8:d1:11:93:25:84|-81dBm|6|2437MHz|4|2427MHz|40MHz (2407 - 2447)|~109.8m|[WPA2-PSK-CCMP+TKIP][WPS][ESS]
+|qqqqq1---
+Time Stamp|SSID|BSSID|Strength|Primary Channel|Primary Frequency|Center Channel|Center Frequency|Width (Range)|Distance|Security
+2018/12/04 00:11:33|Darv9|70:4f:57:f4:3a:dc|-34dBm|1|2412MHz|3|2422MHz|40MHz (2402 - 2442)|~0.5m|[WPS][ESS]
+|qqqqq2018/12/04 00:11:33|ura1|f8:1a:67:f1:da:7e|-85dBm|3|2422MHz|5|2432MHz|40MHz (2412 - 2452)|~175.1m|[WPA2-PSK-CCMP][WPS][ESS]
+|qqqqq2018/12/04 00:11:33|Ura|f8:d1:11:93:25:84|-81dBm|6|2437MHz|4|2427MHz|40MHz (2407 - 2447)|~109.8m|[WPA2-PSK-CCMP+TKIP][WPS][ESS]
+|qqqqq2---
+Time Stamp|SSID|BSSID|Strength|Primary Channel|Primary Frequency|Center Channel|Center Frequency|Width (Range)|Distance|Security
+2018/12/04 00:11:34|Darv9|70:4f:57:f4:3a:dc|-34dBm|1|2412MHz|3|2422MHz|40MHz (2402 - 2442)|~0.5m|[WPS][ESS]
+|qqqqq2018/12/04 00:11:34|ura1|f8:1a:67:f1:da:7e|-85dBm|3|2422MHz|5|2432MHz|40MHz (2412 - 2452)|~175.1m|[WPA2-PSK-CCMP][WPS][ESS]
+|qqqqq2018/12/04 00:11:34|Ura|f8:d1:11:93:25:84|-81dBm|6|2437MHz|4|2427MHz|40MHz (2407 - 2447)|~109.8m|[WPA2-PSK-CCMP+TKIP][WPS][ESS]
+|qqqqq3---
+Time Stamp|SSID|BSSID|Strength|Primary Channel|Primary Frequency|Center Channel|Center Frequency|Width (Range)|Distance|Security
+2018/12/04 00:11:35|Darv9|70:4f:57:f4:3a:dc|-35dBm|1|2412MHz|3|2422MHz|40MHz (2402 - 2442)|~0.6m|[WPS][ESS]
+|qqqqq2018/12/04 00:11:35|ura1|f8:1a:67:f1:da:7e|-85dBm|3|2422MHz|5|2432MHz|40MHz (2412 - 2452)|~175.1m|[WPA2-PSK-CCMP][WPS][ESS]
+|qqqqq2018/12/04 00:11:35|Ura|f8:d1:11:93:25:84|-81dBm|6|2437MHz|4|2427MHz|40MHz (2407 - 2447)|~109.8m|[WPA2-PSK-CCMP+TKIP][WPS][ESS]
+|qqqqq4---
+Time Stamp|SSID|BSSID|Strength|Primary Channel|Primary Frequency|Center Channel|Center Frequency|Width (Range)|Distance|Security
+2018/12/04 00:11:36|Darv9|70:4f:57:f4:3a:dc|-35dBm|1|2412MHz|3|2422MHz|40MHz (2402 - 2442)|~0.6m|[WPS][ESS]
+|qqqqq2018/12/04 00:11:36|Ura|f8:d1:11:93:25:84|-81dBm|6|2437MHz|4|2427MHz|40MHz (2407 - 2447)|~109.8m|[WPA2-PSK-CCMP+TKIP][WPS][ESS]
+|qqqqq5---
+Time Stamp|SSID|BSSID|Strength|Primary Channel|Primary Frequency|Center Channel|Center Frequency|Width (Range)|Distance|Security
+2018/12/04 00:11:37|Darv9|70:4f:57:f4:3a:dc|-36dBm|1|2412MHz|3|2422MHz|40MHz (2402 - 2442)|~0.6m|[WPS][ESS]
+|qqqqq2018/12/04 00:11:37|Ura|f8:d1:11:93:25:84|-81dBm|6|2437MHz|4|2427MHz|40MHz (2407 - 2447)|~109.8m|[WPA2-PSK-CCMP+TKIP][WPS][ESS]
+|qqqqq6---
+Time Stamp|SSID|BSSID|Strength|Primary Channel|Primary Frequency|Center Channel|Center Frequency|Width (Range)|Distance|Security
+2018/12/04 00:11:38|Darv9|70:4f:57:f4:3a:dc|-36dBm|1|2412MHz|3|2422MHz|40MHz (2402 - 2442)|~0.6m|[WPS][ESS]
+|qqqqq2018/12/04 00:11:38|Ura|f8:d1:11:93:25:84|-81dBm|6|2437MHz|4|2427MHz|40MHz (2407 - 2447)|~109.8m|[WPA2-PSK-CCMP+TKIP][WPS][ESS]
+|qqqqq7---
+Time Stamp|SSID|BSSID|Strength|Primary Channel|Primary Frequency|Center Channel|Center Frequency|Width (Range)|Distance|Security
+2018/12/04 00:11:39|Darv9|70:4f:57:f4:3a:dc|-36dBm|1|2412MHz|3|2422MHz|40MHz (2402 - 2442)|~0.6m|[WPS][ESS]
+|qqqqq2018/12/04 00:11:39|Ura|f8:d1:11:93:25:84|-81dBm|6|2437MHz|4|2427MHz|40MHz (2407 - 2447)|~109.8m|[WPA2-PSK-CCMP+TKIP][WPS][ESS]
+|qqqqq8---
+Time Stamp|SSID|BSSID|Strength|Primary Channel|Primary Frequency|Center Channel|Center Frequency|Width (Range)|Distance|Security
+2018/12/04 00:11:41|Darv9|70:4f:57:f4:3a:dc|-36dBm|1|2412MHz|3|2422MHz|40MHz (2402 - 2442)|~0.6m|[WPS][ESS]
+|qqqqq2018/12/04 00:11:41|Ura|f8:d1:11:93:25:84|-81dBm|6|2437MHz|4|2427MHz|40MHz (2407 - 2447)|~109.8m|[WPA2-PSK-CCMP+TKIP][WPS][ESS]
+|qqqqq9---
+Time Stamp|SSID|BSSID|Strength|Primary Channel|Primary Frequency|Center Channel|Center Frequency|Width (Range)|Distance|Security
+2018/12/04 00:11:43|Darv9|70:4f:57:f4:3a:dc|-36dBm|1|2412MHz|3|2422MHz|40MHz (2402 - 2442)|~0.6m|[WPS][ESS]
+|qqqqq2018/12/04 00:11:43|Ura|f8:d1:11:93:25:84|-79dBm|6|2437MHz|4|2427MHz|40MHz (2407 - 2447)|~87.2m|[WPA2-PSK-CCMP+TKIP][WPS][ESS]
+|qqqqq10---
+Time Stamp|SSID|BSSID|Strength|Primary Channel|Primary Frequency|Center Channel|Center Frequency|Width (Range)|Distance|Security
+2018/12/04 00:11:44|Darv9|70:4f:57:f4:3a:dc|-35dBm|1|2412MHz|3|2422MHz|40MHz (2402 - 2442)|~0.6m|[WPS][ESS]
+|qqqqq2018/12/04 00:11:44|Ura|f8:d1:11:93:25:84|-78dBm|6|2437MHz|4|2427MHz|40MHz (2407 - 2447)|~77.7m|[WPA2-PSK-CCMP+TKIP][WPS][ESS]
+|qqqqq11---
+Time Stamp|SSID|BSSID|Strength|Primary Channel|Primary Frequency|Center Channel|Center Frequency|Width (Range)|Distance|Security
+2018/12/04 00:11:45|Darv9|70:4f:57:f4:3a:dc|-35dBm|1|2412MHz|3|2422MHz|40MHz (2402 - 2442)|~0.6m|[WPS][ESS]
+|qqqqq2018/12/04 00:11:45|Ura|f8:d1:11:93:25:84|-78dBm|6|2437MHz|4|2427MHz|40MHz (2407 - 2447)|~77.7m|[WPA2-PSK-CCMP+TKIP][WPS][ESS]
+|qqqqq12---
+Time Stamp|SSID|BSSID|Strength|Primary Channel|Primary Frequency|Center Channel|Center Frequency|Width (Range)|Distance|Security
+2018/12/04 00:11:46|Darv9|70:4f:57:f4:3a:dc|-35dBm|1|2412MHz|3|2422MHz|40MHz (2402 - 2442)|~0.6m|[WPS][ESS]
+|qqqqq2018/12/04 00:11:46|Ura|f8:d1:11:93:25:84|-79dBm|6|2437MHz|4|2427MHz|40MHz (2407 - 2447)|~87.2m|[WPA2-PSK-CCMP+TKIP][WPS][ESS]
+|qqqqq13---
+Time Stamp|SSID|BSSID|Strength|Primary Channel|Primary Frequency|Center Channel|Center Frequency|Width (Range)|Distance|Security
+2018/12/04 00:11:47|Darv9|70:4f:57:f4:3a:dc|-35dBm|1|2412MHz|3|2422MHz|40MHz (2402 - 2442)|~0.6m|[WPS][ESS]
+|qqqqq2018/12/04 00:11:47|Ura|f8:d1:11:93:25:84|-80dBm|6|2437MHz|4|2427MHz|40MHz (2407 - 2447)|~97.9m|[WPA2-PSK-CCMP+TKIP][WPS][ESS]
+|qqqqq14---
+Time Stamp|SSID|BSSID|Strength|Primary Channel|Primary Frequency|Center Channel|Center Frequency|Width (Range)|Distance|Security
+2018/12/04 00:11:48|Darv9|70:4f:57:f4:3a:dc|-35dBm|1|2412MHz|3|2422MHz|40MHz (2402 - 2442)|~0.6m|[WPS][ESS]
+|qqqqq2018/12/04 00:11:48|Ura|f8:d1:11:93:25:84|-81dBm|6|2437MHz|4|2427MHz|40MHz (2407 - 2447)|~109.8m|[WPA2-PSK-CCMP+TKIP][WPS][ESS]
+|qqqqq15---
+Time Stamp|SSID|BSSID|Strength|Primary Channel|Primary Frequency|Center Channel|Center Frequency|Width (Range)|Distance|Security
+2018/12/04 00:11:49|Darv9|70:4f:57:f4:3a:dc|-35dBm|1|2412MHz|3|2422MHz|40MHz (2402 - 2442)|~0.6m|[WPS][ESS]
+|qqqqq2018/12/04 00:11:49|Ura|f8:d1:11:93:25:84|-81dBm|6|2437MHz|4|2427MHz|40MHz (2407 - 2447)|~109.8m|[WPA2-PSK-CCMP+TKIP][WPS][ESS]
+|qqqqq16---
+Time Stamp|SSID|BSSID|Strength|Primary Channel|Primary Frequency|Center Channel|Center Frequency|Width (Range)|Distance|Security
+2018/12/04 00:11:50|Darv9|70:4f:57:f4:3a:dc|-36dBm|1|2412MHz|3|2422MHz|40MHz (2402 - 2442)|~0.6m|[WPS][ESS]
+|qqqqq2018/12/04 00:11:50|Ura|f8:d1:11:93:25:84|-81dBm|6|2437MHz|4|2427MHz|40MHz (2407 - 2447)|~109.8m|[WPA2-PSK-CCMP+TKIP][WPS][ESS]
+|qqqqq17---
+Time Stamp|SSID|BSSID|Strength|Primary Channel|Primary Frequency|Center Channel|Center Frequency|Width (Range)|Distance|Security
+2018/12/04 00:11:51|Darv9|70:4f:57:f4:3a:dc|-36dBm|1|2412MHz|3|2422MHz|40MHz (2402 - 2442)|~0.6m|[WPS][ESS]
+|qqqqq2018/12/04 00:11:51|Ura|f8:d1:11:93:25:84|-81dBm|6|2437MHz|4|2427MHz|40MHz (2407 - 2447)|~109.8m|[WPA2-PSK-CCMP+TKIP][WPS][ESS]
+|qqqqq18---
+Time Stamp|SSID|BSSID|Strength|Primary Channel|Primary Frequency|Center Channel|Center Frequency|Width (Range)|Distance|Security
+2018/12/04 00:11:52|Darv9|70:4f:57:f4:3a:dc|-36dBm|1|2412MHz|3|2422MHz|40MHz (2402 - 2442)|~0.6m|[WPS][ESS]
+|qqqqq2018/12/04 00:11:52|Ura|f8:d1:11:93:25:84|-81dBm|6|2437MHz|4|2427MHz|40MHz (2407 - 2447)|~109.8m|[WPA2-PSK-CCMP+TKIP][WPS][ESS]
+|qqqqq19---
+Time Stamp|SSID|BSSID|Strength|Primary Channel|Primary Frequency|Center Channel|Center Frequency|Width (Range)|Distance|Security
+2018/12/04 00:11:54|Darv9|70:4f:57:f4:3a:dc|-35dBm|1|2412MHz|3|2422MHz|40MHz (2402 - 2442)|~0.6m|[WPS][ESS]
+|qqqqq2018/12/04 00:11:54|Astra|c4:6e:1f:b3:b9:9e|-85dBm|11|2462MHz|9|2452MHz|40MHz (2432 - 2472)|~172.3m|[WPA-PSK-CCMP][WPA2-PSK-CCMP][WPS][ESS]
+|qqqqq2018/12/04 00:11:54|ura1|f8:1a:67:f1:da:7e|-87dBm|3|2422MHz|5|2432MHz|40MHz (2412 - 2452)|~220.5m|[WPA2-PSK-CCMP][WPS][ESS]
+|qqqqq2018/12/04 00:11:54|Ura|f8:d1:11:93:25:84|-80dBm|6|2437MHz|4|2427MHz|40MHz (2407 - 2447)|~97.9m|[WPA2-PSK-CCMP+TKIP][WPS][ESS]
+|qqqqq20---
+Time Stamp|SSID|BSSID|Strength|Primary Channel|Primary Frequency|Center Channel|Center Frequency|Width (Range)|Distance|Security
+2018/12/04 00:11:55|Darv9|70:4f:57:f4:3a:dc|-36dBm|1|2412MHz|3|2422MHz|40MHz (2402 - 2442)|~0.6m|[WPS][ESS]
+|qqqqq2018/12/04 00:11:55|Astra|c4:6e:1f:b3:b9:9e|-85dBm|11|2462MHz|9|2452MHz|40MHz (2432 - 2472)|~172.3m|[WPA-PSK-CCMP][WPA2-PSK-CCMP][WPS][ESS]
+|qqqqq2018/12/04 00:11:55|ura1|f8:1a:67:f1:da:7e|-87dBm|3|2422MHz|5|2432MHz|40MHz (2412 - 2452)|~220.5m|[WPA2-PSK-CCMP][WPS][ESS]
+|qqqqq2018/12/04 00:11:55|Ura|f8:d1:11:93:25:84|-80dBm|6|2437MHz|4|2427MHz|40MHz (2407 - 2447)|~97.9m|[WPA2-PSK-CCMP+TKIP][WPS][ESS]
+|qqqqq21---
+Time Stamp|SSID|BSSID|Strength|Primary Channel|Primary Frequency|Center Channel|Center Frequency|Width (Range)|Distance|Security
+2018/12/04 00:11:56|Darv9|70:4f:57:f4:3a:dc|-38dBm|1|2412MHz|3|2422MHz|40MHz (2402 - 2442)|~0.8m|[WPS][ESS]
+|qqqqq2018/12/04 00:11:56|Astra|c4:6e:1f:b3:b9:9e|-85dBm|11|2462MHz|9|2452MHz|40MHz (2432 - 2472)|~172.3m|[WPA-PSK-CCMP][WPA2-PSK-CCMP][WPS][ESS]
+|qqqqq2018/12/04 00:11:56|ura1|f8:1a:67:f1:da:7e|-87dBm|3|2422MHz|5|2432MHz|40MHz (2412 - 2452)|~220.5m|[WPA2-PSK-CCMP][WPS][ESS]
+|qqqqq2018/12/04 00:11:56|Ura|f8:d1:11:93:25:84|-80dBm|6|2437MHz|4|2427MHz|40MHz (2407 - 2447)|~97.9m|[WPA2-PSK-CCMP+TKIP][WPS][ESS]
+|qqqqq22---
+Time Stamp|SSID|BSSID|Strength|Primary Channel|Primary Frequency|Center Channel|Center Frequency|Width (Range)|Distance|Security
+2018/12/04 00:11:57|Darv9|70:4f:57:f4:3a:dc|-38dBm|1|2412MHz|3|2422MHz|40MHz (2402 - 2442)|~0.8m|[WPS][ESS]
+|qqqqq2018/12/04 00:11:57|Astra|c4:6e:1f:b3:b9:9e|-85dBm|11|2462MHz|9|2452MHz|40MHz (2432 - 2472)|~172.3m|[WPA-PSK-CCMP][WPA2-PSK-CCMP][WPS][ESS]
+|qqqqq2018/12/04 00:11:57|ura1|f8:1a:67:f1:da:7e|-87dBm|3|2422MHz|5|2432MHz|40MHz (2412 - 2452)|~220.5m|[WPA2-PSK-CCMP][WPS][ESS]
+|qqqqq2018/12/04 00:11:57|Ura|f8:d1:11:93:25:84|-80dBm|6|2437MHz|4|2427MHz|40MHz (2407 - 2447)|~97.9m|[WPA2-PSK-CCMP+TKIP][WPS][ESS]
+|qqqqq23---
+Time Stamp|SSID|BSSID|Strength|Primary Channel|Primary Frequency|Center Channel|Center Frequency|Width (Range)|Distance|Security
+2018/12/04 00:11:58|Darv9|70:4f:57:f4:3a:dc|-38dBm|1|2412MHz|3|2422MHz|40MHz (2402 - 2442)|~0.8m|[WPS][ESS]
+|qqqqq2018/12/04 00:11:58|Astra|c4:6e:1f:b3:b9:9e|-85dBm|11|2462MHz|9|2452MHz|40MHz (2432 - 2472)|~172.3m|[WPA-PSK-CCMP][WPA2-PSK-CCMP][WPS][ESS]
+|qqqqq2018/12/04 00:11:58|ura1|f8:1a:67:f1:da:7e|-87dBm|3|2422MHz|5|2432MHz|40MHz (2412 - 2452)|~220.5m|[WPA2-PSK-CCMP][WPS][ESS]
+|qqqqq2018/12/04 00:11:58|Ura|f8:d1:11:93:25:84|-80dBm|6|2437MHz|4|2427MHz|40MHz (2407 - 2447)|~97.9m|[WPA2-PSK-CCMP+TKIP][WPS][ESS]
+|qqqqq24---
+Time Stamp|SSID|BSSID|Strength|Primary Channel|Primary Frequency|Center Channel|Center Frequency|Width (Range)|Distance|Security
+2018/12/04 00:11:59|Darv9|70:4f:57:f4:3a:dc|-36dBm|1|2412MHz|3|2422MHz|40MHz (2402 - 2442)|~0.6m|[WPS][ESS]
+|qqqqq2018/12/04 00:11:59|Astra|c4:6e:1f:b3:b9:9e|-85dBm|11|2462MHz|9|2452MHz|40MHz (2432 - 2472)|~172.3m|[WPA-PSK-CCMP][WPA2-PSK-CCMP][WPS][ESS]
+|qqqqq2018/12/04 00:11:59|ura1|f8:1a:67:f1:da:7e|-87dBm|3|2422MHz|5|2432MHz|40MHz (2412 - 2452)|~220.5m|[WPA2-PSK-CCMP][WPS][ESS]
+|qqqqq2018/12/04 00:11:59|Ura|f8:d1:11:93:25:84|-80dBm|6|2437MHz|4|2427MHz|40MHz (2407 - 2447)|~97.9m|[WPA2-PSK-CCMP+TKIP][WPS][ESS]
+|qqqqq25---
+Time Stamp|SSID|BSSID|Strength|Primary Channel|Primary Frequency|Center Channel|Center Frequency|Width (Range)|Distance|Security
+2018/12/04 00:12:00|Darv9|70:4f:57:f4:3a:dc|-35dBm|1|2412MHz|3|2422MHz|40MHz (2402 - 2442)|~0.6m|[WPS][ESS]
+|qqqqq2018/12/04 00:12:00|Astra|c4:6e:1f:b3:b9:9e|-85dBm|11|2462MHz|9|2452MHz|40MHz (2432 - 2472)|~172.3m|[WPA-PSK-CCMP][WPA2-PSK-CCMP][WPS][ESS]
+|qqqqq2018/12/04 00:12:00|ura1|f8:1a:67:f1:da:7e|-87dBm|3|2422MHz|5|2432MHz|40MHz (2412 - 2452)|~220.5m|[WPA2-PSK-CCMP][WPS][ESS]
+|qqqqq2018/12/04 00:12:00|Ura|f8:d1:11:93:25:84|-80dBm|6|2437MHz|4|2427MHz|40MHz (2407 - 2447)|~97.9m|[WPA2-PSK-CCMP+TKIP][WPS][ESS]
+|qqqqq26---
+Time Stamp|SSID|BSSID|Strength|Primary Channel|Primary Frequency|Center Channel|Center Frequency|Width (Range)|Distance|Security
+2018/12/04 00:12:01|Darv9|70:4f:57:f4:3a:dc|-35dBm|1|2412MHz|3|2422MHz|40MHz (2402 - 2442)|~0.6m|[WPS][ESS]
+|qqqqq2018/12/04 00:12:01|Astra|c4:6e:1f:b3:b9:9e|-85dBm|11|2462MHz|9|2452MHz|40MHz (2432 - 2472)|~172.3m|[WPA-PSK-CCMP][WPA2-PSK-CCMP][WPS][ESS]
+|qqqqq2018/12/04 00:12:01|ura1|f8:1a:67:f1:da:7e|-87dBm|3|2422MHz|5|2432MHz|40MHz (2412 - 2452)|~220.5m|[WPA2-PSK-CCMP][WPS][ESS]
+|qqqqq2018/12/04 00:12:01|Ura|f8:d1:11:93:25:84|-80dBm|6|2437MHz|4|2427MHz|40MHz (2407 - 2447)|~97.9m|[WPA2-PSK-CCMP+TKIP][WPS][ESS]
+|qqqqq27---
+Time Stamp|SSID|BSSID|Strength|Primary Channel|Primary Frequency|Center Channel|Center Frequency|Width (Range)|Distance|Security
+2018/12/04 00:12:02|Darv9|70:4f:57:f4:3a:dc|-35dBm|1|2412MHz|3|2422MHz|40MHz (2402 - 2442)|~0.6m|[WPS][ESS]
+|qqqqq2018/12/04 00:12:02|Astra|c4:6e:1f:b3:b9:9e|-85dBm|11|2462MHz|9|2452MHz|40MHz (2432 - 2472)|~172.3m|[WPA-PSK-CCMP][WPA2-PSK-CCMP][WPS][ESS]
+|qqqqq2018/12/04 00:12:02|ura1|f8:1a:67:f1:da:7e|-87dBm|3|2422MHz|5|2432MHz|40MHz (2412 - 2452)|~220.5m|[WPA2-PSK-CCMP][WPS][ESS]
+|qqqqq2018/12/04 00:12:02|Ura|f8:d1:11:93:25:84|-80dBm|6|2437MHz|4|2427MHz|40MHz (2407 - 2447)|~97.9m|[WPA2-PSK-CCMP+TKIP][WPS][ESS]
+|qqqqq28---
+Time Stamp|SSID|BSSID|Strength|Primary Channel|Primary Frequency|Center Channel|Center Frequency|Width (Range)|Distance|Security
+2018/12/04 00:12:03|Darv9|70:4f:57:f4:3a:dc|-35dBm|1|2412MHz|3|2422MHz|40MHz (2402 - 2442)|~0.6m|[WPS][ESS]
+|qqqqq2018/12/04 00:12:03|Astra|c4:6e:1f:b3:b9:9e|-85dBm|11|2462MHz|9|2452MHz|40MHz (2432 - 2472)|~172.3m|[WPA-PSK-CCMP][WPA2-PSK-CCMP][WPS][ESS]
+|qqqqq2018/12/04 00:12:03|ura1|f8:1a:67:f1:da:7e|-86dBm|3|2422MHz|5|2432MHz|40MHz (2412 - 2452)|~196.5m|[WPA2-PSK-CCMP][WPS][ESS]
+|qqqqq2018/12/04 00:12:03|Ura|f8:d1:11:93:25:84|-80dBm|6|2437MHz|4|2427MHz|40MHz (2407 - 2447)|~97.9m|[WPA2-PSK-CCMP+TKIP][WPS][ESS]
+|qqqqq29---
+Time Stamp|SSID|BSSID|Strength|Primary Channel|Primary Frequency|Center Channel|Center Frequency|Width (Range)|Distance|Security
+2018/12/04 00:12:06|Darv9|70:4f:57:f4:3a:dc|-38dBm|1|2412MHz|3|2422MHz|40MHz (2402 - 2442)|~0.8m|[WPS][ESS]
+|qqqqq2018/12/04 00:12:06|Astra|c4:6e:1f:b3:b9:9e|-85dBm|11|2462MHz|9|2452MHz|40MHz (2432 - 2472)|~172.3m|[WPA-PSK-CCMP][WPA2-PSK-CCMP][WPS][ESS]
+|qqqqq2018/12/04 00:12:06|ura1|f8:1a:67:f1:da:7e|-85dBm|3|2422MHz|5|2432MHz|40MHz (2412 - 2452)|~175.1m|[WPA2-PSK-CCMP][WPS][ESS]
+|qqqqq2018/12/04 00:12:06|Ura|f8:d1:11:93:25:84|-80dBm|6|2437MHz|4|2427MHz|40MHz (2407 - 2447)|~97.9m|[WPA2-PSK-CCMP+TKIP][WPS][ESS]
+|qqqqq30---
+</string>
+    <string name="devider">
+2</string>
 </resources>

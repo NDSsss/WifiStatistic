@@ -44,16 +44,20 @@ public class DrawerFragment extends Fragment implements View.OnClickListener,ITa
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_drawer_ading:
-                getFragmentManager().beginTransaction().replace(R.id.container,new AddingFragment(this)).commitAllowingStateLoss();
+                getFragmentManager().beginTransaction().replace(R.id.container,new AddingFragment()).commitAllowingStateLoss();
                 break;
             case R.id.btn_drawer_filter:
-                getFragmentManager().beginTransaction().replace(R.id.container,new FilterFragment(this)).commitAllowingStateLoss();
+                getFragmentManager().beginTransaction().replace(R.id.container,new FilterFragment()).commitAllowingStateLoss();
                 break;
         }
 
 //        Intent intent = new Intent(getContext(),ExampleActivity.class);
 //        startActivity(intent);
 //        v.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+    }
+
+    public void showInitScreen(){
+        getFragmentManager().beginTransaction().replace(R.id.container,new AddingFragment()).commitAllowingStateLoss();
     }
 
     @Override
@@ -65,4 +69,5 @@ public class DrawerFragment extends Fragment implements View.OnClickListener,ITa
     public String getStat() {
         return mStatisitic;
     }
+
 }
