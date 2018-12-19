@@ -2,6 +2,7 @@ package com.example.wifistatistic.Adding;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -22,6 +23,7 @@ import android.widget.Toast;
 
 import com.example.wifistatistic.ITakeStatistic;
 import com.example.wifistatistic.R;
+import com.example.wifistatistic.filepickerdialog.FilePickerDialog;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -30,10 +32,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URI;
+import java.util.ArrayList;
 
 import static android.app.Activity.RESULT_OK;
 
-public class AddingFragment extends Fragment implements View.OnClickListener, ITakeStatistic {
+public class AddingFragment extends Fragment implements View.OnClickListener, ITakeStatistic, FilePickerDialog.OnFilePick {
 
     public static final String TAG = "AddingFragment ";
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
@@ -45,6 +48,8 @@ public class AddingFragment extends Fragment implements View.OnClickListener, IT
     EditText etInputPath;
     Button btnChoose;
     ITakeStatistic mTakeStatistic;
+    ArrayList<String> files;
+    private FilePickerDialog dialog;
 
     public AddingFragment(){
 
@@ -77,20 +82,26 @@ public class AddingFragment extends Fragment implements View.OnClickListener, IT
     }
 
     private void chooseFile(){
-        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-        intent.setType("file/*");
-        startActivityForResult(intent,PICK_REQUEST_CODE);
+//        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+//        intent.setType("file/*");
+//        startActivityForResult(intent,PICK_REQUEST_CODE);
+        File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS).getAbsolutePath()+"/wifiAnalyzer");
+        if(!file.exists()){
+            file.mkdir();
+        }
+        dialog = new FilePickerDialog(getContext(),file,this::fileClicked);
+        dialog.show();
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == PICK_REQUEST_CODE)
+        if (requestCode ==PICK_REQUEST_CODE)
         {
             if (resultCode == RESULT_OK)
             {
+                verifyStoragePermissions(getActivity());
                 Uri uri = data.getData();
                 String type = data.getType();
-                verifyStoragePermissions(getActivity());
                 try {
                     mTakeStatistic.setStat(getStringFromFile(uri.getPath()));
                 } catch (IOException e){
@@ -156,5 +167,24 @@ public class AddingFragment extends Fragment implements View.OnClickListener, IT
     @Override
     public String getStat() {
         return null;
+    }
+
+    @Override
+    public void fileClicked(File pickedFile) {
+        dialog.dismiss();
+        verifyStoragePermissions(getActivity());
+        try {
+            mTakeStatistic.setStat(getStringFromFile(pickedFile.getAbsolutePath()));
+        } catch (IOException e){
+            Log.d(TAG, "onActivityResult: parsing error");
+            Dialog dialog = new Dialog(getContext());
+            dialog.setTitle(e.getLocalizedMessage());
+            dialog.show();
+        }catch (Exception e){
+            Log.d(TAG, "onActivityResult: parsingeror");
+            Dialog dialog = new Dialog(getContext());
+            dialog.setTitle(e.getLocalizedMessage());
+            dialog.show();
+        }
     }
 }
