@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Environment;
@@ -19,6 +20,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TabHost;
 import android.widget.TextView;
@@ -62,6 +64,7 @@ public class FilterFragment extends Fragment implements FilePickerDialog.OnFileP
     private String TAG = "FilterFragment";
     private Handler handler;
     private TabHost tabHost;
+    private ImageView ivShare;
 
 
     public FilterFragment() {
@@ -94,6 +97,8 @@ public class FilterFragment extends Fragment implements FilePickerDialog.OnFileP
         rvPointsByChannel = (RecyclerView) view.findViewById(R.id.rv_filtred_points_by_channel);
         tvChooseFile = (TextView) view.findViewById(R.id.tv_filter_choose_file);
         tvChooseFile.setOnClickListener(v->chooseFile());
+        ivShare = view.findViewById(R.id.iv_share_statistic);
+        ivShare.setOnClickListener(v->share());
         tabHost = view.findViewById(R.id.th_fragment_filter);
         tabHost.setup();
 
@@ -141,16 +146,16 @@ public class FilterFragment extends Fragment implements FilePickerDialog.OnFileP
                 filterAdapter.setPoints(uniquePoints);
                 filterAdapterByCount.setPoints(pointsFiltredByCount);
                 filterAdapterByChannel.setPoints(pointsFiltredByChannel);
-                setTime();
+                tvChooseFile.setText(getTime());
                 mMainProgress.completeProgress();
             }
         };
     }
 
-    private void setTime(){
+    private String getTime(){
         String time = mMeasurements.get(0).getPoints().get(0).getTimeStamp().concat("\n")
                 .concat(mMeasurements.get(mMeasurements.size()-1).getPoints().get(0).getTimeStamp());
-        tvChooseFile.setText(time);
+        return time;
     }
 
     private void chooseFile(){
@@ -257,6 +262,76 @@ public class FilterFragment extends Fragment implements FilePickerDialog.OnFileP
         }
     }
 
+    private void share(){
+        String data = "";
+        String title = getTime();
+        switch (tabHost.getCurrentTab()){
+            case 0:
+                title += "\nВсе уникальные точки";
+                for(int i = 0; i< uniquePoints.size(); i++){
+                    data+=(uniquePoints.get(i).getSsid());
+                    data+=(" ");
+                    data+=(String.valueOf(uniquePoints.get(i).getTimesUsed()));
+                    data+=("\n");
+                }
+                break;
+            case 1:
+                title += "\nСортированые по количеству. Если количество >= 2/3 от количества измерений, то точка стационарная";
+                for(int i = 0; i< pointsFiltredByCount.size(); i++){
+                    switch (pointsFiltredByCount.get(i).getType()){
+                        case WiFiPoint.TYPE_STATIONARY:
+                            data+=("S ");
+                            break;
+                        case WiFiPoint.TYPE_MOBILE:
+                            data+=("M ");
+                            break;
+                    }
+                    data+=(pointsFiltredByCount.get(i).getSsid());
+                    data+=(" ");
+                    data+=(String.valueOf(pointsFiltredByCount.get(i).getTimesUsed()));
+                    data+=("\n");
+                }
+                break;
+            case 2:
+                title += "\nСортированые по ширине канала. Если ширина >= 4 канала, то точка стационарная";
+                for(int i = 0; i< pointsFiltredByChannel.size(); i++){
+                    switch (pointsFiltredByChannel.get(i).getType()){
+                        case WiFiPoint.TYPE_STATIONARY:
+                            data+=("S ");
+                            break;
+                        case WiFiPoint.TYPE_MOBILE:
+                            data+=("M ");
+                            break;
+                    }
+                    data+=(pointsFiltredByChannel.get(i).getSsid());
+                    data+=(" ");
+                    data+=(String.valueOf(pointsFiltredByChannel.get(i).getTimesUsed()));
+                    data+=(" Ширина каналов ");
+                    data+=(String.valueOf((pointsFiltredByChannel.get(i).getPrimaryChannel()-pointsFiltredByChannel.get(i).getCenterChannel())==0?1:(pointsFiltredByChannel.get(i).getPrimaryChannel()-pointsFiltredByChannel.get(i).getCenterChannel())*2));
+                    data+=("\n");
+                }
+                break;
+        }
+
+        Intent intent = createIntent(title,(data));
+//        Intent chooser = createChooserIntent(intent, title);
+        getActivity().startActivity(intent);
+    }
+    private Intent createChooserIntent(@NonNull Intent intent, @NonNull String title) {
+        return Intent.createChooser(intent, title);
+    }
+    private Intent createIntent(String title,String data) {
+        Intent intent = createSendIntent();
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TITLE, title);
+        intent.putExtra(Intent.EXTRA_SUBJECT, title);
+        intent.putExtra(Intent.EXTRA_TEXT, data);
+        return intent;
+    }
+    Intent createSendIntent() {
+        return new Intent(Intent.ACTION_SEND);
+    }
 
     public static String convertStreamToString(InputStream is) throws Exception {
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));

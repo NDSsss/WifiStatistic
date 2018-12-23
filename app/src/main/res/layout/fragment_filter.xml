@@ -8,6 +8,7 @@
         android:textSize="17dp"
         android:text="Выберите файл для импорта истории"
         android:layout_width="match_parent"
+        android:minHeight="30dp"
         android:layout_height="wrap_content" />
     <TabHost
         android:layout_below="@+id/tv_filter_choose_file"
@@ -47,4 +48,11 @@
         </FrameLayout>
         </LinearLayout>
     </TabHost>
+    <ImageView
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:id="@+id/iv_share_statistic"
+        android:src="@drawable/ic_share"
+        android:layout_width="30dp"
+        android:layout_height="30dp" />
 </RelativeLayout>
