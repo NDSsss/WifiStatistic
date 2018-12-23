@@ -19,6 +19,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
+import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,16 +38,20 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class FilterFragment extends Fragment implements FilePickerDialog.OnFilePick {
     public static final String UNIQUE_POINTS = "UNIQUE_POINTS";
+    public static final String COUNT_POINTS = "COUNT_POINTS";
+    public static final String CHANNEL_POINTS = "CHANNEL_POINTS";
     private ITakeStatistic mTakeStatistic;
     private IMainProgress mMainProgress;
     private List<Measurement> mMeasurements;
-    private RecyclerView rvPoints;
-    private FilterAdapter filterAdapter;
-    private ArrayList<WiFiPoint> uniquePoints;
+    private RecyclerView rvPoints,rvPointsByCount,rvPointsByChannel;
+    private FilterAdapter filterAdapter,filterAdapterByCount,filterAdapterByChannel;
+    private ArrayList<WiFiPoint> uniquePoints,pointsFiltredByCount,pointsFiltredByChannel;
     private TextView tvChooseFile;
     private FilePickerDialog dialog;
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
@@ -55,6 +61,7 @@ public class FilterFragment extends Fragment implements FilePickerDialog.OnFileP
     };
     private String TAG = "FilterFragment";
     private Handler handler;
+    private TabHost tabHost;
 
 
     public FilterFragment() {
@@ -83,8 +90,30 @@ public class FilterFragment extends Fragment implements FilePickerDialog.OnFileP
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_filter, container, false);
         rvPoints = (RecyclerView) view.findViewById(R.id.rv_filtred_points);
+        rvPointsByCount = (RecyclerView) view.findViewById(R.id.rv_filtred_points_by_count);
+        rvPointsByChannel = (RecyclerView) view.findViewById(R.id.rv_filtred_points_by_channel);
         tvChooseFile = (TextView) view.findViewById(R.id.tv_filter_choose_file);
         tvChooseFile.setOnClickListener(v->chooseFile());
+        tabHost = view.findViewById(R.id.th_fragment_filter);
+        tabHost.setup();
+
+        TabHost.TabSpec tabSpec = tabHost.newTabSpec(UNIQUE_POINTS);
+
+        tabSpec.setContent(R.id.rv_filtred_points);
+        tabSpec.setIndicator("Все");
+        tabHost.addTab(tabSpec);
+
+        tabSpec = tabHost.newTabSpec(COUNT_POINTS);
+        tabSpec.setContent(R.id.rv_filtred_points_by_count);
+        tabSpec.setIndicator("По количеству");
+        tabHost.addTab(tabSpec);
+
+        tabSpec = tabHost.newTabSpec(CHANNEL_POINTS);
+        tabSpec.setContent(R.id.rv_filtred_points_by_channel);
+        tabSpec.setIndicator("По ширине канала");
+        tabHost.addTab(tabSpec);
+
+        tabHost.setCurrentTab(0);
         return view;
     }
 
@@ -96,10 +125,22 @@ public class FilterFragment extends Fragment implements FilePickerDialog.OnFileP
         rvPoints.setLayoutManager(linearLayoutManager);
         filterAdapter = new FilterAdapter(uniquePoints);
         rvPoints.setAdapter(filterAdapter);
+        LinearLayoutManager linearLayoutManager2 = new LinearLayoutManager(getContext());
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        rvPointsByCount.setLayoutManager(linearLayoutManager2);
+        filterAdapterByCount = new FilterAdapter(pointsFiltredByCount);
+        rvPointsByCount.setAdapter(filterAdapterByCount);
+        LinearLayoutManager linearLayoutManager3 = new LinearLayoutManager(getContext());
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        rvPointsByChannel.setLayoutManager(linearLayoutManager3);
+        filterAdapterByChannel = new FilterAdapter(pointsFiltredByChannel);
+        rvPointsByChannel.setAdapter(filterAdapterByChannel);
         handler = new Handler(){
             @Override
             public void handleMessage(Message msg) {
                 filterAdapter.setPoints(uniquePoints);
+                filterAdapterByCount.setPoints(pointsFiltredByCount);
+                filterAdapterByChannel.setPoints(pointsFiltredByChannel);
                 setTime();
                 mMainProgress.completeProgress();
             }
@@ -136,7 +177,7 @@ public class FilterFragment extends Fragment implements FilePickerDialog.OnFileP
         }
     }
 
-    public ArrayList<WiFiPoint> filter(){
+    public void filter(){
         Measurement measure;
         mMeasurements = new ArrayList<>();
         uniquePoints = new ArrayList<>();
@@ -160,8 +201,62 @@ public class FilterFragment extends Fragment implements FilePickerDialog.OnFileP
                 }
             }
         }
-        return uniquePoints;
+        Collections.sort(uniquePoints);
+        pointsFiltredByCount = new ArrayList<>();
+        cloneList(uniquePoints,pointsFiltredByCount);
+        int enoughForStationary = mMeasurements.size()/3*2;
+        for (int i = 0; i < pointsFiltredByCount.size(); i++){
+            if(pointsFiltredByCount.get(i).getTimesUsed()>=enoughForStationary){
+                pointsFiltredByCount.get(i).setType(WiFiPoint.TYPE_STATIONARY);
+            } else {
+                pointsFiltredByCount.get(i).setType(WiFiPoint.TYPE_MOBILE);
+            }
+        }
+        pointsFiltredByChannel = new ArrayList<>();
+        cloneList(uniquePoints,pointsFiltredByChannel);
+        for(int i = 0; i < pointsFiltredByChannel.size(); i++){
+            if(pointsFiltredByChannel.get(i).getPrimaryChannel()-pointsFiltredByChannel.get(i).getCenterChannel()>=2){
+                pointsFiltredByChannel.get(i).setType(WiFiPoint.TYPE_STATIONARY);
+            } else {
+                pointsFiltredByChannel.get(i).setType(WiFiPoint.TYPE_MOBILE);
+            }
+        }
+        Collections.sort(pointsFiltredByChannel, new Comparator<WiFiPoint>() {
+            @Override
+            public int compare(WiFiPoint o1, WiFiPoint o2) {
+                if(o1.getType()<o2.getType()){
+                    return -1;
+                } else if(o1.getType()>o2.getType()){
+                    return 1;
+                } else {
+                    return 0;
+                }
+            }
+        });
     }
+
+    private void cloneList(ArrayList<WiFiPoint> original, ArrayList<WiFiPoint> copied){
+        for(int i = 0; i < original.size(); i++){
+            WiFiPoint npoint = new WiFiPoint();
+            WiFiPoint oldPoint = original.get(i);
+            npoint.setTimeStamp(oldPoint.getTimeStamp());
+            npoint.setSsid(oldPoint.getSsid());
+            npoint.setBssid(oldPoint.getBssid());
+            npoint.setStrengh(oldPoint.getStrengh());
+            npoint.setPrimaryChannel(oldPoint.getPrimaryChannel());
+            npoint.setPrimaryFrequency(oldPoint.getPrimaryFrequency());
+            npoint.setCenterChannel(oldPoint.getCenterChannel());
+            npoint.setCenterFrequency(oldPoint.getCenterFrequency());
+            npoint.setRange(oldPoint.getRange());
+            npoint.setDistance(oldPoint.getDistance());
+            npoint.setSecuruty(oldPoint.getSecuruty());
+            npoint.setTimesUsed(oldPoint.getTimesUsed());
+            npoint.setType(oldPoint.getType());
+            copied.add(npoint);
+
+        }
+    }
+
 
     public static String convertStreamToString(InputStream is) throws Exception {
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));

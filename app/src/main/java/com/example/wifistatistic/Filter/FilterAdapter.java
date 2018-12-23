@@ -34,7 +34,19 @@ public class FilterAdapter extends RecyclerView.Adapter<FilterAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.tvPoint.setText(points.get(position).getSsid().concat(" ").concat(String.valueOf(points.get(position).getTimesUsed())));
+        String type = "";
+        switch (points.get(position).getType()){
+            case WiFiPoint.TYPE_UNDEFINED:
+                type = "";
+                break;
+            case WiFiPoint.TYPE_STATIONARY:
+                type = "S ";
+                break;
+            case WiFiPoint.TYPE_MOBILE:
+                type = "M ";
+                break;
+        }
+        holder.tvPoint.setText(type.concat(points.get(position).getSsid().concat(" ").concat(String.valueOf(points.get(position).getTimesUsed()))));
     }
 
     @Override

@@ -2,21 +2,34 @@ package com.example.wifistatistic.Classes;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
 
-public class WiFiPoint implements Parcelable {
+public class WiFiPoint implements Parcelable, Comparable<WiFiPoint> {
     public static final int WIFI_POINT_STATS_COUNT = 11;
+    public static final int TYPE_UNDEFINED = -1;
+    public static final int TYPE_STATIONARY = 0;
+    public static final int TYPE_MOBILE = 1;
     private String timeStamp;
     private String ssid;
     private String bssid;
     private String strengh;
-    private String primaryChannel;
+    private int primaryChannel;
     private String primaryFrequency;
-    private String centerChannel;
+    private int centerChannel;
     private String centerFrequency;
     private String range;
     private String distance;
     private String securuty;
     private int timesUsed = 0;
+    private int type=TYPE_UNDEFINED;
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
 
     public int getTimesUsed() {
         return timesUsed;
@@ -58,11 +71,11 @@ public class WiFiPoint implements Parcelable {
         this.strengh = strengh;
     }
 
-    public String getPrimaryChannel() {
+    public int getPrimaryChannel() {
         return primaryChannel;
     }
 
-    public void setPrimaryChannel(String primaryChannel) {
+    public void setPrimaryChannel(int primaryChannel) {
         this.primaryChannel = primaryChannel;
     }
 
@@ -74,11 +87,11 @@ public class WiFiPoint implements Parcelable {
         this.primaryFrequency = primaryFrequency;
     }
 
-    public String getCenterChannel() {
+    public int getCenterChannel() {
         return centerChannel;
     }
 
-    public void setCenterChannel(String centerChannel) {
+    public void setCenterChannel(int centerChannel) {
         this.centerChannel = centerChannel;
     }
 
@@ -114,9 +127,10 @@ public class WiFiPoint implements Parcelable {
         this.securuty = securuty;
     }
 
-    public void incrementTimeUsed(){
+    public void incrementTimeUsed() {
         timesUsed++;
     }
+
 
     public boolean setPoint(String data) {
         String[] stats = data.split("\\|");
@@ -126,9 +140,9 @@ public class WiFiPoint implements Parcelable {
             ssid = stats[1];
             bssid = stats[2];
             strengh = stats[3];
-            primaryChannel = stats[4];
+            primaryChannel = Integer.valueOf(stats[4]);
             primaryFrequency = stats[5];
-            centerChannel = stats[6];
+            centerChannel = Integer.valueOf(stats[6]);
             centerFrequency = stats[7];
             range = stats[8];
             distance = stats[9];
@@ -141,7 +155,7 @@ public class WiFiPoint implements Parcelable {
 
     @Override
     public boolean equals(Object obj) {
-        return ssid.equals(((WiFiPoint)obj).ssid);
+        return ssid.equals(((WiFiPoint) obj).ssid);
     }
 
 
@@ -156,14 +170,15 @@ public class WiFiPoint implements Parcelable {
         dest.writeString(this.ssid);
         dest.writeString(this.bssid);
         dest.writeString(this.strengh);
-        dest.writeString(this.primaryChannel);
+        dest.writeInt(this.primaryChannel);
         dest.writeString(this.primaryFrequency);
-        dest.writeString(this.centerChannel);
+        dest.writeInt(this.centerChannel);
         dest.writeString(this.centerFrequency);
         dest.writeString(this.range);
         dest.writeString(this.distance);
         dest.writeString(this.securuty);
         dest.writeInt(this.timesUsed);
+        dest.writeInt(this.type);
     }
 
     public WiFiPoint() {
@@ -174,14 +189,15 @@ public class WiFiPoint implements Parcelable {
         this.ssid = in.readString();
         this.bssid = in.readString();
         this.strengh = in.readString();
-        this.primaryChannel = in.readString();
+        this.primaryChannel = in.readInt();
         this.primaryFrequency = in.readString();
-        this.centerChannel = in.readString();
+        this.centerChannel = in.readInt();
         this.centerFrequency = in.readString();
         this.range = in.readString();
         this.distance = in.readString();
         this.securuty = in.readString();
         this.timesUsed = in.readInt();
+        this.type = in.readInt();
     }
 
     public static final Parcelable.Creator<WiFiPoint> CREATOR = new Parcelable.Creator<WiFiPoint>() {
@@ -195,4 +211,15 @@ public class WiFiPoint implements Parcelable {
             return new WiFiPoint[size];
         }
     };
+
+    @Override
+    public int compareTo(@NonNull WiFiPoint o) {
+        if (o.timesUsed > timesUsed) {
+            return 1;
+        } else if (o.timesUsed < timesUsed) {
+            return -1;
+        } else {
+            return 0;
+        }
+    }
 }
