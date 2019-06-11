@@ -222,15 +222,37 @@ public class ChainFragment extends Fragment {
                     }
                     currentResult.append("\n");
                 }
-
+                currentResult.append(checkChain(chainPoints));
+                currentResult.append("\n");
             }
             return currentResult.toString();
         } else {
             return "null";
         }
     }
-    private void checkChain(ArrayList<ArrayList<WiFiPoint>> commonPoints){
-
+    private String checkChain(ArrayList<ArrayList<WiFiPoint>> commonPoints){
+        boolean isAllConnect = true;
+        StringBuilder builder = new StringBuilder();
+        for(int i = 0; i < commonPoints.size(); i++){
+            ArrayList<WiFiPoint> points = commonPoints.get(i);
+            builder.append("Point "+ i+" ");
+            if(points.size()>0){
+                builder.append("connected with ");
+            } else {
+                isAllConnect = false;
+                builder.append("NOT connected with ");
+            }
+            builder.append("Point "+ (i+1) + " ");
+        }
+        builder.append("\n");
+        builder.append("Point0 and Point"+ commonPoints.size());
+        if(isAllConnect){
+            builder.append(" are connected");
+        } else {
+            builder.append(" are NOT connected");
+        }
+        builder.append("\n");
+        return builder.toString();
     }
 
     private void addPointToListIfNotExist(List<WiFiPoint> points, WiFiPoint searchPoint, ArrayList<WiFiPoint> commonPoints){
