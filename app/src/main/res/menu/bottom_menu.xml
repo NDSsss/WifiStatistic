@@ -3,6 +3,9 @@
     <item android:id="@+id/bottom_stat"
         android:icon="@drawable/ic_assessment"
         android:title="@string/stat_title"/>
+    <item android:id="@+id/bottom_chain"
+        android:icon="@drawable/ic_assessment"
+        android:title="@string/chain_title"/>
     <item android:id="@+id/bottom_stat_share"
         android:icon="@drawable/ic_share"
         android:title="@string/stat_title"/>

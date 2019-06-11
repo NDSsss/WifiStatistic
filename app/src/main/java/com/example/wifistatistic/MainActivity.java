@@ -13,6 +13,7 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 
 import com.example.wifistatistic.Filter.FilterFragment;
+import com.example.wifistatistic.chain.ChainFragment;
 import com.example.wifistatistic.drawer.DrawerFragment;
 
 import java.util.List;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements ITakeStatistic,IM
     Toolbar toolbar;
     String mStatistic;
     private FilterFragment filterFragment;
+    private ChainFragment chainFragment;
     private BottomNavigationView bnv;
     private RelativeLayout rvProgress;
 
@@ -34,6 +36,8 @@ public class MainActivity extends AppCompatActivity implements ITakeStatistic,IM
         filterFragment = new FilterFragment();
         filterFragment.setTakeStatisticCallBack(this);
         filterFragment.setmMainProgress(this);
+        chainFragment = new ChainFragment();
+        chainFragment.setmMainProgress(this);
         bnv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -43,6 +47,9 @@ public class MainActivity extends AppCompatActivity implements ITakeStatistic,IM
                         break;
                     case R.id.bottom_stat_share:
                         return false;
+                    case R.id.bottom_chain:
+                        openFragment(chainFragment);
+                        break;
 
                 }
                 return true;
