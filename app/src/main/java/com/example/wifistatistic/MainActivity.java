@@ -4,6 +4,9 @@ import android.app.Dialog;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -15,6 +18,7 @@ import android.widget.RelativeLayout;
 import com.example.wifistatistic.Filter.FilterFragment;
 import com.example.wifistatistic.chain.ChainFragment;
 import com.example.wifistatistic.drawer.DrawerFragment;
+import com.example.wifistatistic.fastest.FastestFragment;
 
 import java.util.List;
 
@@ -26,6 +30,8 @@ public class MainActivity extends AppCompatActivity implements ITakeStatistic,IM
     private ChainFragment chainFragment;
     private BottomNavigationView bnv;
     private RelativeLayout rvProgress;
+    private ViewPager mViewPager;
+    private StateAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,17 +44,20 @@ public class MainActivity extends AppCompatActivity implements ITakeStatistic,IM
         filterFragment.setmMainProgress(this);
         chainFragment = new ChainFragment();
         chainFragment.setmMainProgress(this);
+        mViewPager = findViewById(R.id.container_main);
+        adapter = new StateAdapter(getSupportFragmentManager());
+        mViewPager.setAdapter(adapter);
         bnv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.bottom_stat:
-                        openFragment(filterFragment);
+                        mViewPager.setCurrentItem(0);
                         break;
                     case R.id.bottom_stat_share:
                         return false;
                     case R.id.bottom_chain:
-                        openFragment(chainFragment);
+                        mViewPager.setCurrentItem(1);
                         break;
 
                 }
@@ -59,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements ITakeStatistic,IM
     }
 
     private void openFragment(Fragment fragment){
-        getSupportFragmentManager().beginTransaction().replace(R.id.container_main,fragment).commit();
+//        getSupportFragmentManager().beginTransaction().replace(R.id.container_main,fragment).commit();
     }
 
     @Override
@@ -102,5 +111,35 @@ public class MainActivity extends AppCompatActivity implements ITakeStatistic,IM
         Dialog dialog = new Dialog(this);
         dialog.setTitle(message);
         dialog.show();
+    }
+
+    public class StateAdapter extends FragmentStatePagerAdapter{
+
+        public StateAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            switch (position){
+                case 0:
+                    FilterFragment filterFragment = new FilterFragment();
+                    filterFragment.setTakeStatisticCallBack(MainActivity.this);
+                    filterFragment.setmMainProgress(MainActivity.this);
+                    return filterFragment;
+                case 1:
+                    ChainFragment chainFragment = new ChainFragment();
+                    chainFragment.setmMainProgress(MainActivity.this);
+                    return chainFragment;
+                case 2:
+                    return new FastestFragment();
+            }
+            return null;
+        }
+
+        @Override
+        public int getCount() {
+            return 3;
+        }
     }
 }

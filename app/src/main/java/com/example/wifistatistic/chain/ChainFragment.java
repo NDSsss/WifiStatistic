@@ -21,6 +21,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.wifistatistic.App;
 import com.example.wifistatistic.Classes.Measurement;
 import com.example.wifistatistic.Classes.ObserverPoint;
 import com.example.wifistatistic.Classes.WiFiPoint;
@@ -57,10 +58,13 @@ public class ChainFragment extends Fragment {
     private IMainProgress mMainProgress;
     private SwipeRefreshLayout swipeRefreshLayout;
     private TextView tvResult;
+    
+    
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        Log.d(TAG, "onCreateView: ");
         View view = inflater.inflate(R.layout.fragment_chain, container,false);
         rvChain = view.findViewById(R.id.rv_fragment_chain);
         swipeRefreshLayout = view.findViewById(R.id.srl_fragment_chain_results);
@@ -181,6 +185,8 @@ public class ChainFragment extends Fragment {
         point.setName("Point "+points.size());
         point.setLogFile(fileName);
         points.add(point);
+        App.mInstance.getmArea().addObserverPoint(point);
+        App.mInstance.setObserverPoints(points);
     }
 
     private void reresh(){
@@ -208,7 +214,7 @@ public class ChainFragment extends Fragment {
             ArrayList<String> reslts = new ArrayList<>();
             StringBuilder currentResult = new StringBuilder();
             for(int i = 0; i < minLenth; i++){
-                currentResult.append("Measurment "+i+"\n");
+                currentResult.append("Measure "+i+"\n");
                 ArrayList<ArrayList<WiFiPoint>> chainPoints = new ArrayList<>();
                 for(int j = 0; j < points.size()-1; j++){
                     ArrayList<WiFiPoint> commonPoints = new ArrayList<>();
@@ -258,7 +264,7 @@ public class ChainFragment extends Fragment {
     private void addPointToListIfNotExist(List<WiFiPoint> points, WiFiPoint searchPoint, ArrayList<WiFiPoint> commonPoints){
 //        boolean isExist = false;
         for(WiFiPoint currentPoint: points){
-            if(currentPoint.getSsid().equalsIgnoreCase(searchPoint.getSsid())){
+            if(currentPoint.getSsid().equalsIgnoreCase(searchPoint.getSsid()) && !searchPoint.getSsid().equalsIgnoreCase("***")){
                 commonPoints.add(currentPoint);
             }
         }
